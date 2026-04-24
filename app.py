@@ -149,12 +149,12 @@ if st.button("Generate Report", type="primary", disabled=not ready):
 
             st.success("Report generated successfully!")
 
-            filename = f"{event_name.replace(' ', '_')}_Post_Event_Report.docx"
+            filename = f"{event_name.replace(' ', '_')}_Post_Event_Report.pptx"
             st.download_button(
-                label="⬇ Download Report (.docx)",
+                label="⬇ Download Report (.pptx)",
                 data=report_bytes,
                 file_name=filename,
-                mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
             )
 
         except Exception as e:

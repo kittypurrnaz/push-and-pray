@@ -21,10 +21,9 @@ class DataCleaner:
                     continue
             uploaded_file.seek(0)
             return pd.read_csv(uploaded_file, encoding="utf-8", errors="replace")
-        elif name.endswith((".xlsx", ".xlsm")):
-            return pd.read_excel(uploaded_file, engine="openpyxl")
         else:
-            return pd.read_excel(uploaded_file, engine="xlrd")
+            # openpyxl handles .xlsx, .xlsm, and .xls (xlrd 2.0+ dropped .xls support)
+            return pd.read_excel(uploaded_file, engine="openpyxl")
 
     def clean(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()

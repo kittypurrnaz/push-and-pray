@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Market Researcher — McKinsey-inspired editorial system. All colors HSL. */
+
+@layer base {
+  :root {
+    /* Surfaces — clean paper white */
+    --background: 0 0% 100%;
+    --foreground: 215 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 30% 12%;
+
+    /* Brand: McKinsey deep navy + signature blue accent line */
+    --primary: 215 60% 16%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 90% 45%;
+
+    --secondary: 210 16% 96%;
+    --secondary-foreground: 215 30% 12%;
+
+    --muted: 210 16% 96%;
+    --muted-foreground: 215 12% 42%;
+
+    --accent: 210 90% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 16% 90%;
+    --input: 215 16% 90%;
+    --ring: 215 60% 16%;
+
+    --radius: 0.25rem;
+
+    /* Slide preset tokens (kept for SlideCanvas compatibility) */
+    --slide-corp-bg: 215 60% 16%;
+    --slide-corp-fg: 0 0% 100%;
+    --slide-corp-accent: 210 90% 45%;
+
+    --slide-bold-bg: 8 80% 55%;
+    --slide-bold-fg: 40 30% 96%;
+    --slide-bold-accent: 50 95% 60%;
+
+    --slide-min-bg: 0 0% 100%;
+    --slide-min-fg: 215 30% 12%;
+    --slide-min-accent: 215 60% 16%;
+
+    --shadow-elevated: 0 1px 2px hsl(215 30% 12% / 0.04), 0 8px 24px -12px hsl(215 30% 12% / 0.08);
+    --shadow-glow: 0 0 0 1px hsl(215 60% 16% / 0.08);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 30% 12%;
+    --sidebar-primary: 215 60% 16%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 16% 96%;
+    --sidebar-accent-foreground: 215 30% 12%;
+    --sidebar-border: 215 16% 90%;
+    --sidebar-ring: 215 60% 16%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .text-display {
+    font-family: "Tiempos Headline", "Georgia", "Times New Roman", serif;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+  .text-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  /* McKinsey signature: thin blue rule */
+  .rule-accent {
+    position: relative;
+  }
+  .rule-accent::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: hsl(var(--accent));
+    margin-bottom: 1rem;
+  }
+}
